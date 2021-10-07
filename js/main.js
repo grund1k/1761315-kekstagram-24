@@ -114,7 +114,7 @@ const generatePhotos = (photoQuantity = 25) => {
   for (let index = 0; index < photoQuantity; index++) {
     photos.push ({
       id: generateNoRepeatIds(usedPhotoIds, PHOTO_ID_START, PHOTO_ID_END),
-      url: `photos/${generateNoRepeatIds(usedUrlIds ,URL_ID_START, URL_ID_END)}.jpg`,
+      url: `photos/${generateNoRepeatIds(usedUrlIds, URL_ID_START, URL_ID_END)}.jpg`,
       description: DESCRIPTIONS[getRandomIntInclusive(0, DESCRIPTIONS.length - 1)],
       likes: getRandomIntInclusive(MIN_LIKES_NUMBER, MAX_LIKES_NUMBER),
       comments: generateComments(MIN_COMMENTS_NUMBER, MAX_COMMENTS_NUMBER),
