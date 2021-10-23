@@ -61,7 +61,7 @@ const generateMessage = (messagesArray) => {
 const generateComments = (minComments = 1, maxComments = 4) => {
   const commentsArray = [];
 
-  for (let index = 1; index < getRandomIntInclusive(minComments, maxComments); index++) {
+  for (let index = 0; index < getRandomIntInclusive(minComments, maxComments); index++) {
 
     commentsArray.push({
       id: generateNoRepeatIds(usedCommentsIds, commentIdStart, commentIdEns),
@@ -90,4 +90,6 @@ const generatePhotos = (photoQuantity = 25) => {
   return photos;
 };
 
-generatePhotos(MAX_PHOTOS_NUMBER);
+const generatedPhotos = generatePhotos(MAX_PHOTOS_NUMBER);
+
+export {generatedPhotos};
