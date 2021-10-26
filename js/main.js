@@ -1,2 +1,2 @@
-import './utils.js';
-import './data.js';
+import './thumbnail-render.js';
+import './full-picture-render.js';
