@@ -1,4 +1,5 @@
 import {generatedPhotos} from './data.js';
+import {openBigPicture} from './full-picture-render.js';
 
 const thumbnail = document.querySelector('#picture').content.querySelector('.picture');
 const thumbnailContainer = document.querySelector('.pictures');
@@ -10,6 +11,12 @@ generatedPhotos.forEach((photo) => {
   thumbnailElement.querySelector('.picture__likes').textContent = `${photo.likes}`;
   thumbnailElement.querySelector('.picture__comments').textContent = `${photo.comments.length}`;
   thumbnailFragment.appendChild(thumbnailElement);
+
+  thumbnailElement.addEventListener('click', (evt) => {
+    openBigPicture(evt, photo);
+  });
 });
 
 thumbnailContainer.appendChild(thumbnailFragment);
+
+export {thumbnailContainer};
