@@ -24,4 +24,6 @@ const generateNoRepeatIds = (usedIdsArray = [], idStart = 1, idEnd = 25) => {
   return id;
 };
 
-export {commentLenghtCheck, getRandomIntInclusive, generateNoRepeatIds};
+const isEscapeKey = (evt) => evt.key === 'Escape';
+
+export {commentLenghtCheck, getRandomIntInclusive, generateNoRepeatIds, isEscapeKey};
