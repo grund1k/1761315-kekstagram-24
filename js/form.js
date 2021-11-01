@@ -69,6 +69,7 @@ function closeUploadedImage () {
   removeBodyModalOpen();
   photoUploadForm.value = '';
   hashtagInput.value = '';
+  descriptionInput.value = '';
 
   photoUploadFormClose.removeEventListener('click', () => {
     closeUploadedImage();
