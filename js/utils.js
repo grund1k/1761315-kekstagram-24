@@ -1,4 +1,4 @@
-const commentLenghtCheck = (comment = 'Какой-то комментария', maxCommentLength = 140) => comment.length <= maxCommentLength;
+const stringLenghtCheck = (someString = 'Какой-то комментария', maxStringLength = 140) => someString.length <= maxStringLength;
 
 const getRandomIntInclusive = (min = 10, max = 1000) => {
 
@@ -26,4 +26,14 @@ const generateNoRepeatIds = (usedIdsArray = [], idStart = 1, idEnd = 25) => {
 
 const isEscapeKey = (evt) => evt.key === 'Escape';
 
-export {commentLenghtCheck, getRandomIntInclusive, generateNoRepeatIds, isEscapeKey};
+const body = document.querySelector('body');
+
+const addBodyModalOpen = () => {
+  body.classList.add('modal-open');
+};
+
+const removeBodyModalOpen = () => {
+  body.classList.remove('modal-open');
+};
+
+export {stringLenghtCheck, getRandomIntInclusive, generateNoRepeatIds, isEscapeKey, addBodyModalOpen, removeBodyModalOpen};
