@@ -2,8 +2,8 @@ import {getRandomIntInclusive, generateNoRepeatIds} from './utils.js';
 
 const MIN_LIKES_NUMBER = 15;
 const MAX_LIKES_NUMBER = 200;
-const MIN_COMMENTS_NUMBER = 1;
-const MAX_COMMENTS_NUMBER = 4;
+const MIN_COMMENTS_NUMBER = 7;
+const MAX_COMMENTS_NUMBER = 12;
 const MAX_PHOTOS_NUMBER = 25;
 
 const PHOTO_ID_START = 1;
