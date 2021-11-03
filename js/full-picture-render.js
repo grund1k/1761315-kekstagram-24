@@ -68,6 +68,7 @@ const openBigPicture = (evt, picture) => {
   document.addEventListener('keydown', onPictureEscKeydown);
 
   commentsLoader.addEventListener('click', showComments);
+  bigPictureCloseButton.addEventListener('click', closeBigPicture);
 };
 
 function closeBigPicture() {
@@ -78,8 +79,7 @@ function closeBigPicture() {
   document.removeEventListener('keydown', onPictureEscKeydown);
 
   commentsLoader.removeEventListener('click', showComments);
+  bigPictureCloseButton.removeEventListener('click', closeBigPicture);
 }
-
-bigPictureCloseButton.addEventListener('click', closeBigPicture);
 
 export {renderBigPicture, openBigPicture};
