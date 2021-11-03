@@ -1,6 +1,4 @@
-import {isEscapeKey} from './utils.js';
-
-const body = document.querySelector('body');
+import {isEscapeKey, addBodyModalOpen, removeBodyModalOpen} from './utils.js';
 const bigPicture = document.querySelector('.big-picture');
 const bigPictureTag = bigPicture.querySelector('.big-picture__img img');
 const likesCount = bigPicture.querySelector('.likes-count');
@@ -30,7 +28,7 @@ const renderBigPicture = (picture) => {
   bigPicture.classList.remove('hidden');
   commentsCount.classList.add('hidden');
   commentsLoader.classList.add('hidden');
-  body.classList.add('modal-open');
+  addBodyModalOpen();
 
   bigPictureTag.src = `${picture.url}`;
   likesCount.textContent = `${picture.likes}`;
@@ -56,7 +54,7 @@ const openBigPicture = (evt, picture) => {
 
 function closeBigPicture() {
   bigPicture.classList.add('hidden');
-  body.classList.remove('modal-open');
+  removeBodyModalOpen();
   clearComments();
 
   document.removeEventListener('keydown', onPictureEscKeydown);
