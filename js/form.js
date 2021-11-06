@@ -1,4 +1,6 @@
 import {stringLenghtCheck, isEscapeKey, addBodyModalOpen, removeBodyModalOpen} from './utils.js';
+import {setDefaultScale} from './scale.js';
+import {setDefaultFilter} from './slider.js';
 
 const MAX_HASHTAGS_NUMBER = 5;
 const MAX_COMMENT_LENGTH = 140;
@@ -58,6 +60,8 @@ const openUploadedImage = () => {
     closeUploadedImage();
   });
 
+  setDefaultScale();
+  setDefaultFilter();
   hashtagInput.addEventListener('input', validateHashTags);
   descriptionInput.addEventListener('input', validateDescription);
   document.addEventListener('keydown', onPhotoEscKeydown);
