@@ -1,16 +1,19 @@
 import {stringLenghtCheck, isEscapeKey, addBodyModalOpen, removeBodyModalOpen} from './utils.js';
 import {setDefaultScale} from './scale.js';
 import {setDefaultFilter} from './slider.js';
+import {sendData} from './api.js';
+import {renderSuccessMessage, renderErrorMessage} from './alert-message.js';
 
 const MAX_HASHTAGS_NUMBER = 5;
 const MAX_COMMENT_LENGTH = 140;
 const HASHTAG_REGEX = /^#[A-Za-zА-Яа-яЁё0-9]{1,19}$/;
 
-const photoUploadOverlay = document.querySelector('.img-upload__overlay');
-const photoUploadForm = document.querySelector('#upload-file');
-const photoUploadFormClose = document.querySelector('#upload-cancel');
-const hashtagInput = document.querySelector('.text__hashtags');
-const descriptionInput = document.querySelector('.text__description');
+const imageForm = document.querySelector('#upload-select-image');
+const photoUploadOverlay = imageForm.querySelector('.img-upload__overlay');
+const photoUploadForm = imageForm.querySelector('#upload-file');
+const photoUploadFormClose = imageForm.querySelector('#upload-cancel');
+const hashtagInput = imageForm.querySelector('.text__hashtags');
+const descriptionInput = imageForm.querySelector('.text__description');
 
 const validateHashTags = () => {
   const hashtags = hashtagInput.value.toLowerCase().split(' ');
@@ -95,3 +98,19 @@ hashtagInput.addEventListener('keydown', (evt) => {
 descriptionInput.addEventListener('keydown', (evt) => {
   evt.stopPropagation();
 });
+
+const setImageFormSubmit = (onSuccess) => {
+  imageForm.addEventListener('submit', (evt) => {
+    evt.preventDefault();
+
+    sendData(
+      () => renderSuccessMessage(),
+      () => renderErrorMessage(),
+      new FormData(evt.target),
+    );
+
+    onSuccess();
+  });
+};
+
+export {setImageFormSubmit, closeUploadedImage};
