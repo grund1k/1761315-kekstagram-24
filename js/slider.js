@@ -48,11 +48,14 @@ slider.noUiSlider.on('update', (___, handle, values) => {
     case 'chrome':
     case 'sepia':
     case 'heat':
-      imagePreview.style.filter = `${photoFilter}(${values[handle]})`; break;
+      imagePreview.style.filter = `${photoFilter}(${values[handle]})`;
+      break;
     case 'marvin':
-      imagePreview.style.filter = `${photoFilter}(${values[handle]}%)`; break;
+      imagePreview.style.filter = `${photoFilter}(${values[handle]}%)`;
+      break;
     case 'phobos':
-      imagePreview.style.filter = `${photoFilter}(${values[handle]}px)`; break;
+      imagePreview.style.filter = `${photoFilter}(${values[handle]}px)`;
+      break;
     default:
       imagePreview.style.filter = '';
       effectLevel.value = '';
