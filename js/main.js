@@ -3,6 +3,7 @@ import {setImageFormSubmit, closeUploadedImage} from './form.js';
 import {getData} from './api.js';
 import {showLoadAlert} from './alert-message.js';
 import {debounce} from './utils.js';
+import './avatar.js';
 
 getData(
   (photos) => {
