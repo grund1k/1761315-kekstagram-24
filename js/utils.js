@@ -1,3 +1,5 @@
+const DEBOUNCE_DELAY = 500;
+
 const stringLenghtCheck = (someString = 'Какой-то комментария', maxStringLength = 140) => someString.length <= maxStringLength;
 
 const getRandomIntInclusive = (min = 10, max = 1000) => {
@@ -36,4 +38,13 @@ const removeBodyModalOpen = () => {
   body.classList.remove('modal-open');
 };
 
-export {stringLenghtCheck, getRandomIntInclusive, generateNoRepeatIds, isEscapeKey, addBodyModalOpen, removeBodyModalOpen};
+const debounce = (callback, timeoutDelay = DEBOUNCE_DELAY) => {
+  let timeoutId;
+
+  return (...rest) => {
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => callback.apply(this, rest), timeoutDelay);
+  };
+};
+
+export {stringLenghtCheck, getRandomIntInclusive, generateNoRepeatIds, isEscapeKey, addBodyModalOpen, removeBodyModalOpen, debounce};
